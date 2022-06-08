@@ -9,7 +9,7 @@
     "commit": "node ./node_modules/cz-customizable/standalone.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "fix": "npx eslint packages/**/*.{ts,js} --fix",
-    "test": "jest"
+    "test": "jest --no-cache"
   },
   "author": "chengbotao",
   "license": "MIT",

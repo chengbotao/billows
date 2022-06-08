@@ -15,46 +15,46 @@ import { babel } from '@rollup/plugin-babel';
 
 const { version } = pkg;
 const outputConf = {
-  banner: `/* Billows version ${version} */`,
-  footer: `/* Follow me on GitHub! @chengbotao */`,
+    banner: `/* Billows version ${version} */`,
+    footer: `/* Follow me on GitHub! @chengbotao */`,
 };
 
 export default {
-  input: 'packages/index.ts',
-  output: [
-    {
-      file: resolve(__dirname, 'dist', 'billows.esm.js'),
-      format: 'esm',
-      ...outputConf,
-    },
-    {
-      file: resolve(__dirname, 'dist', 'billows.js'),
-      format: 'umd',
-      name: 'billows',
-      ...outputConf,
-    },
-  ],
-  plugins: [
-    alias({
-      entries: {
-        packages: resolve(__dirname, 'packages'),
-      },
-    }),
-    nodeResolve({
-      extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json'],
-    }),
-    commonjs(),
-    eslint({
-      // fix: true,
-      include: ['packages/**/*.ts'],
-      exclude: ['node_modules/**', 'dist'],
-    }),
-    babel({
-      babelHelpers: 'runtime',
-      exclude: 'node_modules/**',
-      extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', 'tsx'],
-    }),
-    typescript(),
-    json(),
-  ],
+    input: 'packages/index.ts',
+    output: [
+        {
+            file: resolve(__dirname, 'dist', 'billows.esm.js'),
+            format: 'esm',
+            ...outputConf,
+        },
+        {
+            file: resolve(__dirname, 'dist', 'billows.js'),
+            format: 'umd',
+            name: 'billows',
+            ...outputConf,
+        },
+    ],
+    plugins: [
+        alias({
+            entries: {
+                packages: resolve(__dirname, 'packages'),
+            },
+        }),
+        nodeResolve({
+            extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json'],
+        }),
+        commonjs(),
+        eslint({
+            // fix: true,
+            include: ['packages/**/*.ts'],
+            exclude: ['node_modules/**', 'dist', 'test'],
+        }),
+        babel({
+            babelHelpers: 'runtime',
+            exclude: 'node_modules/**',
+            extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', 'tsx'],
+        }),
+        typescript(),
+        json(),
+    ],
 };
