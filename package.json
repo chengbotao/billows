@@ -7,21 +7,32 @@
     "build": "npm run clean && rollup -c rollup.config.ts",
     "clean": "rimraf dist",
     "commit": "node ./node_modules/cz-customizable/standalone.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "fix": "npx eslint packages/**/*.{ts,js} --fix",
+    "test": "jest"
   },
   "author": "chengbotao",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-external-helpers": "^7.17.12",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-eslint": "^8.0.2",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
+    "@types/jest": "^28.1.1",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "babel-jest": "^28.1.1",
     "commitlint-config-cz": "^0.13.3",
     "conventional-changelog-cli": "^2.2.2",
     "cz-customizable": "^6.3.0",
@@ -33,11 +44,18 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^8.0.1",
+    "jest": "^28.1.1",
     "lint-staged": "^13.0.0",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.75.5",
+    "ts-jest": "^28.0.4",
     "tslib": "^2.4.0",
     "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.18.3",
+    "@babel/runtime-corejs3": "^7.18.3",
+    "core-js": "^3.22.8"
   }
 }

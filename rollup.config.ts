@@ -11,6 +11,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
 import eslint from '@rollup/plugin-eslint';
 import typescript from '@rollup/plugin-typescript';
+import { babel } from '@rollup/plugin-babel';
 
 const { version } = pkg;
 const outputConf = {
@@ -44,9 +45,14 @@ export default {
     }),
     commonjs(),
     eslint({
-      fix: true,
+      // fix: true,
       include: ['packages/**/*.ts'],
-      exclude: ['node_modules/**']
+      exclude: ['node_modules/**', 'dist'],
+    }),
+    babel({
+      babelHelpers: 'runtime',
+      exclude: 'node_modules/**',
+      extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.ts', 'tsx'],
     }),
     typescript(),
     json(),

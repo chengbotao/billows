@@ -4,30 +4,18 @@
  */
 module.exports = {
   types: [
-    { value: 'feat', name: 'feat:     A new feature' },
-    { value: 'fix', name: 'fix:      A bug fix' },
-    { value: 'docs', name: 'docs:     Documentation only changes' },
-    {
-      value: 'style',
-      name:
-        'style:    Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)',
-    },
-    {
-      value: 'refactor',
-      name: 'refactor: A code change that neither fixes a bug nor adds a feature',
-    },
-    {
-      value: 'perf',
-      name: 'perf:     A code change that improves performance',
-    },
-    { value: 'test', name: 'test:     Adding missing tests' },
-    {
-      value: 'chore',
-      name:
-        'chore:    Changes to the build process or auxiliary tools\n            and libraries such as documentation generation',
-    },
-    { value: 'revert', name: 'revert:   Revert to a commit' },
-    { value: 'WIP', name: 'WIP:      Work in progress' },
+    { value: "feat", name: "✨ Features | 新功能" },
+    { value: "fix", name: "🐛 Bug Fixes | Bug 修复" },
+    { value: "init", name: "🎉 Init | 初始化" },
+    { value: "docs", name: "✏️ Documentation | 文档" },
+    { value: "style", name: "💄 Styles | 风格" },
+    { value: "refactor", name: "♻️ Code Refactoring | 代码重构" },
+    { value: "perf", name: "⚡ Performance Improvements | 性能优化" },
+    { value: "test", name: "✅ Tests | 测试" },
+    { value: "revert", name: "⏪ Revert | 回退", hidden: true },
+    { value: "build", name: "📦‍ Build System | 打包构建" },
+    { value: "chore", name: "🚀 Chore | 构建/工程依赖/工具" },
+    { value: "ci", name: "👷 Continuous Integration | CI 配置" }
   ],
 
   scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
@@ -50,15 +38,15 @@ module.exports = {
   */
   // override the messages, defaults are as follows
   messages: {
-    type: "Select the type of change that you're committing:",
-    scope: '\nDenote the SCOPE of this change (optional):',
+    type: "选择要提交的更改类型:",
+    scope: '\n表示此更改的范围(可选):',
     // used if allowCustomScopes is true
-    customScope: 'Denote the SCOPE of this change:',
-    subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
-    body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-    breaking: 'List any BREAKING CHANGES (optional):\n',
-    footer: 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n',
-    confirmCommit: 'Are you sure you want to proceed with the commit above?',
+    customScope: '表示此更改的范围(自定义):',
+    subject: '写一个简短的，命令式的时态描述变化:\n',
+    body: '提供更改的较长描述(可选)。使用"|"换行:\n',
+    breaking: '列出任何重大更改(可选):\n',
+    footer: '列出此更改关闭的任何问题(可选). E.g.: #31, #34:\n',
+    confirmCommit: '您确定要继续上面的提交吗?',
   },
 
   allowCustomScopes: true,
