@@ -6,12 +6,12 @@
 import { deepClone } from '../packages/deepclone';
 
 describe('深克隆(deepClone)', () => {
-    const obj = {
-        name: 'chengbotao',
-        age: 28,
-    };
+  const obj = {
+    name: 'chengbotao',
+    age: 28,
+  };
 
-    test('deepClone(honda, Car) => true', () => {
-        expect(deepClone(obj)).toEqual({ name: 'chengbotao', age: 28 });
-    });
+  test('deepClone(honda, Car) => true', () => {
+    expect(deepClone(obj)).toEqual({ name: 'chengbotao', age: 28 });
+  });
 });
