@@ -7,3 +7,4 @@ export { deepClone } from './deepclone';
 export { instanceOf } from './instanceof';
 export { getValueByReference } from './getvaluebyreference';
 export { setValueByReference } from './setvaluebyreference';
+export { partial } from './partial';
