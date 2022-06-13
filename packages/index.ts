@@ -6,3 +6,4 @@ export { typeOf } from './typeof';
 export { deepClone } from './deepclone';
 export { instanceOf } from './instanceof';
 export { getValueByReference } from './getvaluebyreference';
+export { setValueByReference } from './setvaluebyreference';
