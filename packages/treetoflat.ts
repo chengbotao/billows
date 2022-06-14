@@ -5,15 +5,18 @@
 
 import { DuckTyping } from '../types';
 
-export function treeToFlat(target: DuckTyping, subsetKey: string = 'children') {
-  const copyTree = Array.prototype.slice.call([target]);
+export function treeToFlat(target: any[] & DuckTyping, subsetKey: string = 'children') {
+  const copyTree = typeof target === 'object' ? [target] : Array.prototype.slice.call(target);
   const flat = [];
-  while (copyTree.length) {
-    const node = copyTree.shift();
-    const { [subsetKey]: children, ...rest } = node;
-    flat.push(rest);
-    if (children) {
-      Array.prototype.push.apply(copyTree, node.children);
+  for (let i = 0, len = copyTree.length; i < len; i++) {
+    const record = [copyTree[i]];
+    while (record.length) {
+      const node = record.shift();
+      const { [subsetKey]: children, ...rest } = node;
+      flat.push(rest);
+      if (children) {
+        Array.prototype.push.apply(record, node.children);
+      }
     }
   }
   return flat;
