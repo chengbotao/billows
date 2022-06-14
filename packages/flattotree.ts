@@ -26,10 +26,10 @@ export function flatToTree(
     }
 
     if (item[pid]) {
-      if (!record[pid]) {
-        record[pid] = [];
+      if (!record[item[pid]]) {
+        record[item[pid]] = [];
       }
-      record[pid].push(item);
+      record[item[pid]].push(item);
     } else {
       tree.push(item);
     }
