@@ -6,22 +6,26 @@
 import { DuckTyping } from '../types';
 
 export function getNodeFromTree(
-  target: DuckTyping,
+  target: any[] & DuckTyping,
   mark: any,
   options = {
     id: 'id',
     children: 'children',
   }
 ) {
-  const copyTree = Array.prototype.slice.call([target]);
+  const copyTree = typeof target === 'object' ? [target] : Array.prototype.slice.call(target);
   const { id, children } = options;
-  while (copyTree.length) {
-    const node = copyTree.shift();
-    if (node[id] === mark) {
-      return node;
-    }
-    if (node[children]) {
-      Array.prototype.push.apply(copyTree, node.children);
+  for (let i = 0, len = copyTree.length; i < len; i++) {
+    const record = [copyTree[i]];
+
+    while (record.length) {
+      const node = record.shift();
+      if (node[id] === mark) {
+        return node;
+      }
+      if (node[children]) {
+        Array.prototype.push.apply(record, node.children);
+      }
     }
   }
   return null;
