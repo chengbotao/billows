@@ -2,9 +2,9 @@
  * @Author: Chengbotao
  * @Date: 2022-06-08 14:35:08
  */
-interface DuckTyping {
-  [key: string]: any;
-}
+
+import { DuckTyping } from '../types';
+
 export function deepClone(target: any, map = new WeakMap()): any {
   if (target === null || typeof target !== 'object') {
     return target;
