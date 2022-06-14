@@ -6,7 +6,10 @@
 import { DuckTyping } from '../types';
 
 export function treeToFlat(target: any[] & DuckTyping, subsetKey: string = 'children') {
-  const copyTree = typeof target === 'object' ? [target] : Array.prototype.slice.call(target);
+  const copyTree =
+    Object.prototype.toString.call(target) === '[object Array]'
+      ? Array.prototype.slice.call(target)
+      : [target];
   const flat = [];
   for (let i = 0, len = copyTree.length; i < len; i++) {
     const record = [copyTree[i]];

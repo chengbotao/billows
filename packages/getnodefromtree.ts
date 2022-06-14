@@ -13,7 +13,10 @@ export function getNodeFromTree(
     children: 'children',
   }
 ) {
-  const copyTree = typeof target === 'object' ? [target] : Array.prototype.slice.call(target);
+  const copyTree =
+    Object.prototype.toString.call(target) === '[object Array]'
+      ? Array.prototype.slice.call(target)
+      : [target];
   const { id, children } = options;
   for (let i = 0, len = copyTree.length; i < len; i++) {
     const record = [copyTree[i]];
