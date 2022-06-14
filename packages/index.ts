@@ -10,3 +10,4 @@ export { setValueByReference } from './setvaluebyreference';
 export { partial } from './partial';
 export { curry } from './curry';
 export { getNodeFromTree } from './getnodefromtree';
+export { treeToFlat } from './treetoflat';
