@@ -18,7 +18,7 @@ module.exports = {
     { value: "ci", name: "👷 Continuous Integration | CI 配置" }
   ],
 
-  scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
+  // scopes: [{ name: 'accounts' }, { name: 'admin' }, { name: 'exampleScope' }, { name: 'changeMe' }],
 
   allowTicketNumber: false,
   isTicketNumberRequired: false,
