@@ -8,28 +8,30 @@ import { DuckTyping } from '../types';
 export function getNodeFromTree(
   target: any[] & DuckTyping,
   mark: any,
-  options = {
-    id: 'id',
-    children: 'children',
-  }
+  options?: Partial<Record<'idKey' | 'childrenKey', string>>
 ) {
   const copyTree =
     Object.prototype.toString.call(target) === '[object Array]'
       ? Array.prototype.slice.call(target)
       : [target];
-  const { id, children } = options;
-  for (let i = 0, len = copyTree.length; i < len; i++) {
-    const record = [copyTree[i]];
+  const defaultOpts = Object.assign(
+    {
+      idKey: 'id',
+      childrenKey: 'children',
+    },
+    options
+  );
+  const { idKey, childrenKey } = defaultOpts;
 
-    while (record.length) {
-      const node = record.shift();
-      if (node[id] === mark) {
-        return node;
-      }
-      if (node[children]) {
-        Array.prototype.push.apply(record, node.children);
-      }
+  while (copyTree.length) {
+    const node = copyTree.shift();
+    if (node[idKey] === mark) {
+      return node;
+    }
+    if (node[childrenKey]) {
+      Array.prototype.push.apply(copyTree, node.children);
     }
   }
+
   return null;
 }
