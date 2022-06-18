@@ -14,10 +14,33 @@ export function deepClone(target: any, map = new WeakMap()): any {
     return target;
   }
 
-  const ctor = target.constructor;
-  if (/^(RegExp|Date)$/i.test(ctor.name)) {
-    // eslint-disable-next-line new-cap
-    return new ctor(target);
+  const Ctor = target.constructor;
+  const ctorName = Ctor.name;
+  if (/^(RegExp|Date|Number|String|Boolean|Error)$/i.test(ctorName)) {
+    return new Ctor(target);
+  }
+
+  if (ctorName === 'Symbol') {
+    return Object(Object.prototype.valueOf.call(target));
+  }
+
+  if (ctorName === 'Map') {
+    const cloneMap = new Map();
+    map.set(target, true);
+    target.forEach((value: any, key: any) => {
+      cloneMap.set(deepClone(key, map), deepClone(value, map));
+    });
+    return cloneMap;
+  }
+
+  if (ctorName === 'Set') {
+    const cloneSet = new Set();
+    map.set(target, true);
+
+    target.forEach((value: any) => {
+      cloneSet.add(deepClone(value, map));
+    });
+    return cloneSet;
   }
 
   map.set(target, true);
@@ -25,8 +48,10 @@ export function deepClone(target: any, map = new WeakMap()): any {
   // eslint-disable-next-line prefer-const
   let cloneResult: DuckTyping =
     Object.prototype.toString.call(target) === '[object Array]' ? [] : {};
-  for (const key in target) {
+
+  Object.getOwnPropertyNames(target).forEach((key) => {
     cloneResult[key] = deepClone(target[key], map);
-  }
+  });
+
   return cloneResult;
 }
