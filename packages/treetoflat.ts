@@ -11,15 +11,13 @@ export function treeToFlat(target: any[] & DuckTyping, subsetKey: string = 'chil
       ? Array.prototype.slice.call(target)
       : [target];
   const flat = [];
-  for (let i = 0, len = copyTree.length; i < len; i++) {
-    const record = [copyTree[i]];
-    while (record.length) {
-      const node = record.shift();
-      const { [subsetKey]: children, ...rest } = node;
-      flat.push(rest);
-      if (children) {
-        Array.prototype.push.apply(record, node.children);
-      }
+  while (copyTree.length) {
+    const node = copyTree.shift();
+    const { [subsetKey]: children, ...rest } = node;
+    flat.push(rest);
+    if (children) {
+      Array.prototype.push.apply(copyTree, node.children);
+      // Array.prototype.unshift.apply(copyTree, node.children);
     }
   }
   return flat;
