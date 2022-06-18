@@ -7,29 +7,35 @@ import { DuckTyping } from '../types';
 
 export function flatToTree(
   target: any[],
-  options = {
-    id: 'id',
-    pid: 'pid',
-    children: 'children',
-  }
+  options?: Partial<Record<'idKey' | 'pidKey' | 'childrenKey' | 'topVal', string>>
 ) {
   const copyFlat = Array.prototype.slice.call(target);
   const record: DuckTyping = Object.create(null);
-  const { id, pid, children } = options;
+  const defaultOpts = Object.assign(
+    {
+      idKey: 'id',
+      pidKey: 'pid',
+      childrenKey: 'children',
+      topVal: '',
+    },
+    options
+  );
+  const { idKey, pidKey, childrenKey, topVal } = defaultOpts;
   const tree = [];
   for (let i = 0, len = copyFlat.length; i < len; i++) {
     const item = copyFlat[i];
-    if (record[item[id]]) {
-      item[children] = record[item[id]];
+    const { [idKey]: idVal, [pidKey]: pidVal } = item;
+    if (record[idVal]) {
+      item[childrenKey] = record[idVal];
     } else {
-      item[children] = record[item[id]] = [];
+      item[childrenKey] = record[idVal] = [];
     }
 
-    if (item[pid]) {
-      if (!record[item[pid]]) {
-        record[item[pid]] = [];
+    if (pidVal && pidVal !== topVal) {
+      if (!record[pidVal]) {
+        record[pidVal] = [];
       }
-      record[item[pid]].push(item);
+      record[pidVal].push(item);
     } else {
       tree.push(item);
     }
