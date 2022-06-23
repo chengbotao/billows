@@ -5,8 +5,8 @@
 export function curry(fn: any, ...args: any[]) {
   const len = fn.length;
   return function (this: any) {
-    const anonArgs = Array.prototype.slice.call(arguments);
-    Array.prototype.push.apply(args, anonArgs);
+    const lambdaArgs = Array.prototype.slice.call(arguments);
+    Array.prototype.push.apply(args, lambdaArgs);
     if (args.length < len) {
       return curry.call(this, fn, ...args);
     } else {
