@@ -1,6 +1,6 @@
 {
     "name": "billows",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Tool functions",
     "main": "dist/billows.js",
     "module": "dist/billows.esm.js",

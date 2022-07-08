@@ -10,7 +10,7 @@ export function jsonp(options: JsonpOpts) {
   const { url, callbackName, params, paramsSerializer } = options;
   return new Promise((resolve, reject) => {
     const scriptEl = document.createElement('script');
-    scriptEl.src = buildURL(url, params, paramsSerializer);
+    scriptEl.src = `${buildURL(url, params, paramsSerializer)}&callback=${callbackName}`;
     document.body.appendChild(scriptEl);
     (<any>window)[callbackName] = (data: any) => {
       resolve(data);

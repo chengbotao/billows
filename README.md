@@ -41,6 +41,12 @@ typeOf('chengbotao'); // "string"
 | [`getNodeFromTree`](https://chengbotao.github.io/chengbotao/billows/getNodeFromTree.html)         | 根据唯一标志从树结构中获取节点                                  |
 | [`flatToTree`](https://chengbotao.github.io/chengbotao/billows/flatToTree.html)                   | 扁平化转结构转树结构                                            |
 | [`curry`](https://chengbotao.github.io/chengbotao/billows/curry.html)                             | 函数柯里化                                                      |
+| [`buildURL`](https://chengbotao.github.io/chengbotao/billows/buildURL.html)                       | 由 `url` 和 `params` 生成 URL                                   |
+| [`debounce`](https://chengbotao.github.io/chengbotao/billows/debounce.html)                       | 函数防抖                                                        |
+| [`encodeURIComponents`](https://chengbotao.github.io/chengbotao/billows/encodeURIComponents.html) | 有过滤特殊字符功能的 `encodeURIComponent`                       |
+| [`isURLSearchParams`](https://chengbotao.github.io/chengbotao/billows/isURLSearchParams.html)     | 判断是否是 `URLSearchParams`                                    |
+| [`jsonp`](https://chengbotao.github.io/chengbotao/billows/jsonp.html)                             | `promise` 封装 `jsonp`                                          |
+| [`throttle`](https://chengbotao.github.io/chengbotao/billows/throttle.html)                       | 函数节流                                                        |
 
 ## Docs
 
