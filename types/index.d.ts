@@ -10,6 +10,7 @@ export declare interface DuckTyping {
 export declare interface JsonpOpts {
   url: string;
   callbackName: string;
+  callbackKey?: string
   params?: any;
   paramsSerializer?: (params: any) => string;
 }

@@ -15,6 +15,6 @@ export { flatToTree } from './flattotree';
 export { buildURL } from './buildurl';
 export { debounce } from './debounce';
 export { throttle } from './throttle';
-export { encodeURIComponents } from './encodeuricomponents';
-export { isURLSearchParams } from './isxxx';
+export { encodeURIC } from './encodeuric';
+export { isURLSearchParams, isFormData } from './isxxx';
 export { jsonp } from './jsonp';

@@ -4,7 +4,7 @@
  */
 import { isURLSearchParams } from './isxxx';
 import { typeOf } from './typeof';
-import { encodeURIComponents } from './encodeuricomponents';
+import { encodeURIC } from './encodeuric';
 
 export function buildURL(url: string, params?: any, paramsSerializer?: (params: any) => string) {
   if (!params) return url;
@@ -33,7 +33,7 @@ export function buildURL(url: string, params?: any, paramsSerializer?: (params: 
         } else if (typeOf(val) === 'object') {
           val = JSON.stringify(val);
         }
-        parts.push(`${encodeURIComponents(key)}=${encodeURIComponents(val)}`);
+        parts.push(`${encodeURI(key)}=${encodeURIC(val)}`);
       });
     });
     serializerParams = parts.join('&');
