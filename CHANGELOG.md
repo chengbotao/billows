@@ -3,13 +3,20 @@
  * @Date: 2022-06-15 09:27:24
 -->
 
+## 1.0.4 (2022-07-11)
+
+
+### Features
+
+- **parseUrl:** 解析 URL 参数 ([1cb5a20](https://github.com/chengbotao/billows/commit/1cb5a20f4db4fc38df7e9dab61b0151fcab84454))
+
 # 1.0.3 (2022-06-24)
 
 ### Features
 
 - **buildURL:** 由 `url` 和 `params` 生成 URL ([bbeda5c](https://github.com/chengbotao/billows/commit/bbeda5cf111c0bf2ad41071178081f6ecbb2aca9))
 - **debounce:** 函数防抖 ([7bab330](https://github.com/chengbotao/billows/commit/7bab330422433e78176013b11660f032302f6ea9))
-- **encodeURIComponents:** 有过滤特殊字符功能的 `encodeURIComponent` ([723c04a](https://github.com/chengbotao/billows/commit/723c04af531a40297b1f13db0e2a7e6b2402ec5a))
+- **encodeURIC:** 有过滤特殊字符功能的 `encodeURIComponent` ([723c04a](https://github.com/chengbotao/billows/commit/723c04af531a40297b1f13db0e2a7e6b2402ec5a))
 - **isURLSearchParams:** 判断是否是 `URLSearchParams` ([75e7e34](https://github.com/chengbotao/billows/commit/75e7e344eabac10996fd4a78a2f611e6d55ec1a5))
 - **jsonp:** `promise` 封装 `jsonp` ([9d5a2e0](https://github.com/chengbotao/billows/commit/9d5a2e018214bba7fd4d40bf00ad34acdbefe23e))
 - **throttle:** 函数节流 ([01d8fc7](https://github.com/chengbotao/billows/commit/01d8fc75ce0db8b7c1fc20375928e5b05b5f6820))

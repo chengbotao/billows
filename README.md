@@ -47,6 +47,7 @@ typeOf('chengbotao'); // "string"
 | [`isURLSearchParams`](https://chengbotao.github.io/chengbotao/billows/isURLSearchParams.html)     | 判断是否是 `URLSearchParams`                                    |
 | [`jsonp`](https://chengbotao.github.io/chengbotao/billows/jsonp.html)                             | `promise` 封装 `jsonp`                                          |
 | [`throttle`](https://chengbotao.github.io/chengbotao/billows/throttle.html)                       | 函数节流                                                        |
+| [`parseUrl`](https://chengbotao.github.io/chengbotao/billows/parseurl.html)                       | 解析 `URL` 参数                                                  |
 
 ## Docs
 
